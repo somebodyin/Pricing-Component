@@ -2,26 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer components {
+    .gradient-btn {
+        background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+        transition: all;
+        transition-duration: 300ms;
+        color: #fff;
+    }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+    .gradient-btn:hover {
+        background-image: linear-gradient(to right, hsl(0, 0%, 100%), hsl(0, 0%, 100%));
+        color: #898ee7;
+        @apply border-[#898ee7];
+    }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    .active-btn {
+        @apply bg-white text-[#898ee7] transition-all duration-300;
+    }
+
+    .active-btn:hover {
+        @apply border-white bg-transparent text-white;
+    }
 }
